@@ -114,8 +114,8 @@
         </div>
     </div>
 
-    <!-- Chart -->
-    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+    <!-- Map Chart -->
+    <div class="mx-auto max-w-7xl px-6 py-10 lg:px-8 border-b">
         <div class="mx-auto flex justify-center items-center">
             <div class="mx-4">
                 <select id="select-data" class="border border-2 rounded border-gray-500 bg-white px-3 py-1">
@@ -141,6 +141,47 @@
             <div class="map_legend_container"></div>
             <div id="case_map" class="case_map"></div>
         </div>
+    </div>
+
+    <!-- Monthly report -->
+    <div class="mx-auto max-w-7xl px-6 py-10 lg:px-8 border-b">
+        <div class="mx-auto flex justify-center items-center">
+            <div class="mx-4">
+                <input checked type="radio" name="sortLine" id="maxmin" value="sortMax">
+                <label for="maxmin">Max</label>
+            </div>
+            <div class="mx-4">
+                <input type="radio" name="sortLine" id="minmax" value="sortMin">
+                <label for="minmax">Min</label>
+            </div>
+        </div>
+        <div class="flex mx-auto mt-10">
+            <div class="scatter_legend_block"></div>
+            <div>
+                <label class="text-gray-700">
+                    Monthly reported covid cases over the period</span> <span id="dateLabel1">Feb-2020</span> - <span
+                        id="dateLabel2">June-2022</span>
+                </label>
+                <div id="case_line_chart" class="case_line_chart mt-4">
+                    <div id='line-tooltip' class="tooltip"></div>
+                </div>
+            </div>
+            <div>
+                <label class="text-gray-700">Does the number of tests has played big role on number of cases?</label>
+                <div id="case_scatter_plot" class="case_scatter_plot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto mt-10 flex justify-center">
+            <div class="w-100" id="timeline"></div>
+        </div>
+    </div>
+
+    <!-- Fotter -->
+    <div class="py-32">
     </div>
 
     <!-- App Js -->
