@@ -94,14 +94,6 @@
   transition: 500ms;
 }
 
-#top-selector,
-#sort-vaccine,
-#select-vaccine-data {
-  margin: 10px;
-  font-size: 0.6em;
-  width: 150px;
-}
-
 .map_legend_container {
   margin: 10px 10px;
   border-radius: 5px;
@@ -169,7 +161,6 @@
 /* axis text */
 .axis text {
   fill: rgb(68, 68, 68);
-  font-family: Georgia;
 }
 
 /* LINE CHART */
@@ -189,7 +180,6 @@
 /* TOOLTIP */
 .tooltip {
   fill: #2b2929;
-  font-family: Georgia;
   font-size: 150%;
 }
 
@@ -202,7 +192,6 @@
 /* LABEL*/
 .series_label {
   fill: #e7e4e4;
-  font-family: Georgia;
   font-size: 1em;
 }
 
