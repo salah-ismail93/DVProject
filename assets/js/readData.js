@@ -50,6 +50,7 @@ Promise.all([
     "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
   ),
   d3.csv("data\\covid_data.csv", function (d) {
+    d3.select("#plot1 img").remove();
     if (!all_countries.includes(d.location)) {
       if (!CONTINENTS.includes(d.location) && !OTHERS.includes(d.location)) {
         all_countries.push(d.location);
@@ -86,4 +87,5 @@ function run(error, map_data, covid_data) {
   caseLineChart = new LineChart("#case_line_chart");
   scatterPlot = new ScatterPlot("#case_scatter_plot");
   timeline = new Timeline("#timeline");
+  
 }
