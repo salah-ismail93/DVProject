@@ -102,11 +102,6 @@
   width: 150px;
 }
 
-.plot-cols {
-  margin: 10px auto;
-  background-color: #eee;
-}
-
 .map_legend_container {
   margin: 10px 10px;
   border-radius: 5px;
@@ -118,12 +113,6 @@
 /*Line Chart*/
 .radio-block {
   margin: 10px auto;
-}
-
-/*Timeline*/
-.timeline-container {
-  width: 100%;
-  margin: 0 auto;
 }
 
 .timeline_area {
