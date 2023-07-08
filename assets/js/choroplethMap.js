@@ -116,7 +116,7 @@ function changeData(error, topo, args, yearValue, month) {
       return colorScale(d.count);
     })
     .on("mouseover", function () { return tooltip.style("visibility", "visible"); })
-    .on("mousemove", function (d) {
+    .on("mousemove", function (e,d) {
       return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
         .html((d.properties.name) + "<br><span> Stringency Index: " + (d.count));
     })

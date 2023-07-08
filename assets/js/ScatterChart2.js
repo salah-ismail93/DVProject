@@ -4,7 +4,7 @@ const width4 = 750 - margin4.left - margin4.right;
 const height4 = 600 - margin4.top - margin4.bottom;
 
 const legendWidth = 500;
-const legendHeight = 100;
+const legendHeight = 200;
 
 const legendSvg = d3.select("#my_legend")
   .append("svg")
@@ -109,7 +109,7 @@ d3.csv("/data/scatter_data2.csv").then((data) => {
     .data(totalRegionalIndicator)
     .enter()
     .append("g")
-    .attr("transform", (d, i) => "translate(" + i % n * itemWidth + "," + Math.floor(i / n) * itemHeight + ")")
+    .attr("transform", (d, i) => "translate(0," + i * itemHeight + ")")
     .attr("class", "legend");
 
   const rects = legend.append('rect')
