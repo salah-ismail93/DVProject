@@ -1,11 +1,9 @@
 // Constants
 const width3 = 700;
-const height3 = 600;
+const height3 = 400;
 const margin3 = 5;
 const padding3 = 5;
 const adj3 = 50;
-
-
 
 // Initial data update
 updateData(5);
@@ -24,14 +22,17 @@ function updateData(viewOption) {
     .append("svg")
     .attr("class", "graph-line")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", `-${adj3} -${adj3} ${width3 + adj3 * 5} ${height3 + adj3 * 2}`)
+    .attr(
+      "viewBox",
+      `-${adj3} -${adj3} ${width3 + adj3 * 5} ${height3 + adj3 * 2}`
+    )
     .style("padding", padding3)
     .style("margin", margin3)
     .classed("svg-content", true);
 
   let max, datasetLink;
-    max = 60;
-    datasetLink = "../data/line_data.csv";
+  max = 60;
+  datasetLink = "../data/line_data.csv";
 
   // Data loading and processing
   const timeConv = d3.timeParse("%Y-%m-%d");
@@ -153,9 +154,9 @@ function updateData(viewOption) {
         };
       })
       .attr("transform", function (d) {
-        return `translate(${xScale(d.value.date) + 10}, ${
-          yScale(d.value.measurement) + 5
-        })`;
+        return `translate(${
+          xScale(d.value.date) + 10
+        }, ${yScale(d.value.measurement) + 5})`;
       })
       .attr("x", 5)
       .text(function (d) {
