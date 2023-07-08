@@ -18,6 +18,13 @@
   display: inline-block;
 }
 
+.legend rect {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
 .tooltip {
   position: absolute;
   padding: 6px;
@@ -25,5 +32,17 @@
   color: #fff;
   border-radius: 4px;
   pointer-events: none;
+  font-size: 12px;
+}
+
+.dot {
+  fill-opacity: 0.7;
+}
+
+.legend rect {
+  fill-opacity: 0.7;
+}
+
+.legend text {
   font-size: 12px;
 }
