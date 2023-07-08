@@ -1,7 +1,7 @@
 // Set up chart dimensions
-const margin = { top: 50, right: 100, bottom: 70, left: 70 };
+const margin = { top: 50, right: 50, bottom: 70, left: 70 };
 const width2 = 600 - margin.left - margin.right;
-const height2 = 400 - margin.top - margin.bottom;
+const height2 = 450 - margin.top - margin.bottom;
 
 // Create the SVG container
 const svg2 = d3
@@ -17,9 +17,9 @@ const legendContainer = d3
   .append("svg")
   .attr("id", "legend")
   .attr("width", 300)
-  .attr("height", height2 + margin.top + margin.bottom)
+  .attr("height", 180)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + 0 + "," + margin.top + ")");
 
 // Load data from CSV file
 d3.csv("../data/scatter_data.csv").then(function (parsedData) {
