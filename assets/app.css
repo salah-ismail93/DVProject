@@ -148,3 +148,62 @@
   font-size: 0.4em;
   font-weight: 600;
 }
+
+/* Line Chart CSS */
+
+/* AXES */
+/* ticks */
+.axis line {
+  stroke: #706f6f;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+/* axis contour */
+.axis path {
+  stroke: #706f6f;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+/* axis text */
+.axis text {
+  fill: rgb(68, 68, 68);
+  font-family: Georgia;
+  font-size: 1.5em;
+}
+
+/* LINE CHART */
+.line {
+  fill: none;
+  stroke: #c69494;
+  stroke-width: 3;
+}
+
+.ghost-line {
+  fill: none;
+  stroke: #FF1D33;
+  opacity: 0;
+  stroke-width: 10;
+}
+
+/* TOOLTIP */
+.tooltip {
+  fill: #2b2929;
+  font-family: Georgia;
+  font-size: 150%;
+}
+
+/* POINTS */
+.point {
+  stroke: none;
+  fill: #9c9c9c;
+}
+
+/* LABEL*/
+.series_label {
+  fill: #e7e4e4;
+  font-family: Georgia;
+  font-size: 1em;
+}
+
