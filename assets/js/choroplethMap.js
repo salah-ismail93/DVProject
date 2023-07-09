@@ -15,7 +15,7 @@ const monthNames = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 
 const d = new Date();
@@ -33,36 +33,40 @@ var sliderTime = d3
   .max(d3.max(dataTime))
   .step(60 * 60 * 24 * 365)
   .width(700)
-  .tickFormat(d3.timeFormat('%b %Y'))
+  .tickFormat(d3.timeFormat("%b %Y"))
   .tickValues(dataTime)
-  .on('onchange', function (val) {
-    changeCSVData(d3.timeFormat('%Y')(val), d3.timeFormat('%m')(val));
-    d3.select('p#value-time').text(d3.timeFormat('%b %Y')(val));
+  .on("onchange", function (val) {
+    changeCSVData(d3.timeFormat("%Y")(val), d3.timeFormat("%m")(val));
+    d3.select("p#value-time").text(d3.timeFormat("%b %Y")(val));
   });
 
 var gTime = d3
-  .select('div#slider-time')
-  .append('svg')
-  .attr('width', 800)
-  .attr('height', 100)
-  .append('g')
-  .attr('transform', 'translate(30,30)');
+  .select("div#slider-time")
+  .append("svg")
+  .attr("width", 800)
+  .attr("height", 100)
+  .append("g")
+  .attr("transform", "translate(30,30)");
 
 gTime.call(sliderTime);
 
-d3.select('p#value-time').text(d3.timeFormat('%b %Y')(sliderTime.value()));
+d3.select("p#value-time").text(d3.timeFormat("%b %Y")(sliderTime.value()));
 
 changeCSVData(2020, 1);
 
 function changeCSVData(year, month) {
   Promise.all([
-    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-    d3.csv("/data/map_data_str.csv")
-  ]).then(([topo, args]) => {
-    changeData(null, topo, args, year, parseInt(month.toString()));
-  }).catch(error => {
-    console.error("Error loading data:", error);
-  });
+    d3.json(
+      "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
+    ),
+    d3.csv("/data/map_data_str.csv"),
+  ])
+    .then(([topo, args]) => {
+      changeData(null, topo, args, year, parseInt(month.toString()));
+    })
+    .catch((error) => {
+      console.error("Error loading data:", error);
+    });
 }
 
 function changeData(error, topo, args, yearValue, month) {
@@ -76,26 +80,34 @@ function changeData(error, topo, args, yearValue, month) {
     }
   }
 
-  args = args.filter(d => d.year == yearValue);
-  args = args.filter(d => d.month == month);
-  args.forEach(d => data.set(d.location, parseInt(d.stringency_index)));
+  args = args.filter((d) => d.year == yearValue);
+  args = args.filter((d) => d.month == month);
+  args.forEach((d) => data.set(d.location, parseInt(d.stringency_index)));
 
   var svg = d3.select("svg#chart5"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
   var path = d3.geoPath();
-  var projection = d3.geoMercator()
-  .scale(width / 2.5)                       // This is like the zoom
-  .center([100, 23])                // GPS of location to zoom on
-  .translate([width / 2, height / 2]);
+  var projection = d3
+    .geoMercator()
+    .scale(width / 2.5) // This is like the zoom
+    .center([100, 23]) // GPS of location to zoom on
+    .translate([width / 2, height / 2]);
 
-  var pinkColors = ["#ffd7cf", "#ffbfb2", "#ffa696", "#ff8d7c", "#ff7162", "#ff504a", "#ff1d33"];
-  var colorScale = d3.scaleThreshold()
-    .domain(domain)
-    .range(pinkColors);
+  var pinkColors = [
+    "#ffd7cf",
+    "#ffbfb2",
+    "#ffa696",
+    "#ff8d7c",
+    "#ff7162",
+    "#ff504a",
+    "#ff1d33",
+  ];
+  var colorScale = d3.scaleThreshold().domain(domain).range(pinkColors);
 
-  var tooltip = d3.select("body")
+  var tooltip = d3
+    .select("body")
     .append("div")
     .style("position", "absolute")
     .style("z-index", "10")
@@ -104,7 +116,8 @@ function changeData(error, topo, args, yearValue, month) {
     .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
     .style("padding", "5px");
 
-  svg.append("g")
+  svg
+    .append("g")
     .selectAll("path")
     .data(topo.features)
     .join("path")
@@ -115,21 +128,27 @@ function changeData(error, topo, args, yearValue, month) {
       d.count = data.get(d.properties.name) || 0;
       return colorScale(d.count);
     })
-    .on("mouseover", function () { return tooltip.style("visibility", "visible"); })
-    .on("mousemove", function (e,d) {
-      return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
-        .html((d.properties.name) + "<br><span> Stringency Index: " + (d.count));
+    .on("mouseover", function () {
+      return tooltip.style("visibility", "visible");
+    })
+    .on("mousemove", function (e, d) {
+      return tooltip
+        .style("top", event.pageY - 10 + "px")
+        .style("left", event.pageX + 10 + "px")
+        .html(d.properties.name + "<br><span> Stringency Index: " + d.count);
     })
     .on("mouseout", function () {
       return tooltip.style("visibility", "hidden");
     });
 
-  var legend = svg.selectAll('rect')
+  var legend = svg
+    .selectAll("rect")
     .data(domain)
-    .join('g').attr('class', 'legendEntry');
+    .join("g")
+    .attr("class", "legendEntry");
 
   legend
-    .append('rect')
+    .append("rect")
     .attr("x", width - 115)
     .attr("y", function (d, i) {
       return i * 20 + 250;
@@ -143,22 +162,25 @@ function changeData(error, topo, args, yearValue, month) {
     });
 
   legend
-    .append('text')
+    .append("text")
     .attr("x", width - 100)
     .attr("y", function (d, i) {
       return i * 20 + 250;
     })
     .attr("dy", "0.7em")
     .text(function (d, i) {
-      return readablize(domain[i]) + (domain[i + 1] ? ("-" + readablize(domain[i + 1])) : "");
+      return (
+        readablize(domain[i]) +
+        (domain[i + 1] ? "-" + readablize(domain[i + 1]) : "")
+      );
     });
 }
 
 function readablize(number) {
-  var s = ['', 'K', 'M', 'GB', 'TB', 'PB'];
+  var s = ["", "K", "M", "GB", "TB", "PB"];
   if (number > 999) {
     var e = Math.floor(Math.log(number) / Math.log(1000));
-    return (number / Math.pow(1000, e)) + " " + s[e];
+    return number / Math.pow(1000, e) + " " + s[e];
   } else {
     return number;
   }
