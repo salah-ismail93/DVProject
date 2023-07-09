@@ -4,7 +4,7 @@ const width4 = 750 - margin4.left - margin4.right;
 const height4 = 600 - margin4.top - margin4.bottom;
 
 const legendWidth = 500;
-const legendHeight = 180;
+const legendHeight = 120;
 
 const legendSvg = d3
   .select("#my_legend")
