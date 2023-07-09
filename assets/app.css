@@ -7,9 +7,6 @@
   margin-left: 20px;
 }
 
-.legend {
-  font-size: 12px;
-}
 
 .legend rect {
   width: 18px;
@@ -43,9 +40,9 @@
   fill-opacity: 0.7;
 }
 
-.legend text {
-  font-size: 12px;
-}
+/* .legend text {
+ mt
+} */
 
 .axis {
   font: 10px sans-serif;
