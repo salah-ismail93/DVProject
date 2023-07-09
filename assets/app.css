@@ -195,3 +195,11 @@
 .series-label{
   font-size: 10px;
 }
+
+.mylist{
+  list-style: auto;
+}
+
+.margin30{
+  margin-top: 10rem;
+}
