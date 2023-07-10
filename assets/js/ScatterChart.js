@@ -22,7 +22,7 @@ const legendContainer = d3
   .attr("transform", "translate(" + 0 + "," + margin.top + ")");
 
 // Load data from CSV file
-d3.csv("../data/scatter_data.csv").then(function (parsedData) {
+d3.csv("../DVProject/data/scatter_data.csv").then(function (parsedData) {
   // Extract unique values from the "Regional_indicator" column
   const legends = [...new Set(parsedData.map((d) => d.Regional_indicator))];
 
