@@ -59,7 +59,7 @@ function changeCSVData(year, month) {
     d3.json(
       "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
     ),
-    d3.csv("/data/map_data_str.csv"),
+    d3.csv("/DVProject/data/map_data_str.csv"),
   ])
     .then(([topo, args]) => {
       changeData(null, topo, args, year, parseInt(month.toString()));

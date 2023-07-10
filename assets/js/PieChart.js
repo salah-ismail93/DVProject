@@ -18,7 +18,7 @@ var svg = d3
   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 // Read data from CSV file
-d3.csv("../data/world_total_death_pie_data.csv").then(function (data) {
+d3.csv("../DVProject/data/world_total_death_pie_data.csv").then(function (data) {
   data.forEach(function (d) {
     d.total_no_deaths = +d.total_no_deaths;
     d.percentage = +d.percentage;

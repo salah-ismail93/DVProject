@@ -32,7 +32,7 @@ function updateData(viewOption) {
 
   let max, datasetLink;
   max = 60;
-  datasetLink = "../data/line_data.csv";
+  datasetLink = "../DVProject/data/line_data.csv";
 
   // Data loading and processing
   const timeConv = d3.timeParse("%Y-%m-%d");

@@ -25,7 +25,7 @@ const tooltip = d3
   .style("padding", "10px")
   .style("color", "white");
 
-d3.csv("/data/scatter_data2.csv")
+d3.csv("/DVProject/data/scatter_data2.csv")
   .then((data) => {
     const groupedData = data.reduce(function (result, entry) {
       result[entry.Regional_indicator] = result[entry.Regional_indicator] || [];
