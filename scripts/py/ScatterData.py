@@ -2,11 +2,11 @@ import pandas as pd
 import numpy as np
 
 # Read the COVID-19 data
-covid_data = pd.read_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/data/owid-covid-data.csv')
+covid_data = pd.read_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/DVProject/data/owid-covid-data.csv')
 print(covid_data)
 
 # Read the World Happiness Report data
-happiness_data = pd.read_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/data/world-happiness-report-2021.csv')
+happiness_data = pd.read_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/DVProject/data/world-happiness-report-2021.csv')
 happiness_data['Regional_indicator'] = happiness_data['Regional indicator']
 happiness_data = happiness_data.set_index('Country name')
 
@@ -60,4 +60,4 @@ grouped_data['case_fatality_rate'] = grouped_data['total_deaths'] / grouped_data
 grouped_data = grouped_data.sort_values(by='case_fatality_rate')
 
 # Save the grouped data to a CSV file
-grouped_data.to_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/data/scatter_data.csv', index=False, header=True)
+grouped_data.to_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/DVProject/data/scatter_data.csv', index=False, header=True)

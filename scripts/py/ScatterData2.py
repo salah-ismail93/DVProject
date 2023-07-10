@@ -2,12 +2,12 @@
 import numpy as np
 import pandas as pd
 # read files
-data = pd.read_csv("C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/data/owid-covid-data.csv")
+data = pd.read_csv("C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/DVProject/data/owid-covid-data.csv")
 # print(data.columns)
 data.tail()
 # Basic information about all the columns of the data
 data.info()
-data_2 = pd.read_csv("C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/data/world-happiness-report-2021.csv")
+data_2 = pd.read_csv("C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/DVProject/data/world-happiness-report-2021.csv")
 data_2['Regional_indicator'] = data_2['Regional indicator']
 data_2['Regional_indicator']
 data_2 = data_2.set_index('Country name')
@@ -47,4 +47,4 @@ df_grouped = df_grouped.sort_values(by=["total_cases"], ascending=False).reset_i
 locations = df_grouped['location']
 df_grouped = df_grouped.dropna()
 df_grouped
-df_grouped.to_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/data/scatter_data2.csv',index=False,header=True)
+df_grouped.to_csv('C:/Users/salah.ismail/OneDrive - unige.it/2nd term/unige.it/Data Visualization - 90529 - 2022-23/DVProject/DVProject/data/scatter_data2.csv',index=False,header=True)
