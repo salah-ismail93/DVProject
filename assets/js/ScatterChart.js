@@ -34,21 +34,15 @@ d3.csv("../data/scatter_data.csv").then(function (parsedData) {
 
   // Scale for the x-axis
   const xScale = d3
-    .scaleLinear()
-    .domain([
-      0,
-      d3.max(parsedData, (d) => parseFloat(d.ratio_total_deaths) * 100),
-    ])
-    .range([0, width2]);
+  .scaleLinear()
+  .domain([0, 0.5])
+  .range([0, width2]);
 
   // Scale for the y-axis
   const yScale = d3
-    .scaleLinear()
-    .domain([
-      0,
-      d3.max(parsedData, (d) => parseFloat(d.ratio_total_cases) * 100),
-    ])
-    .range([height2, 0]);
+  .scaleLinear()
+  .domain([0, 100])
+  .range([height2, 0]);
 
   // Scale for the point sizes
   const sizeScale = d3
@@ -65,8 +59,8 @@ d3.csv("../data/scatter_data.csv").then(function (parsedData) {
     .enter()
     .append("circle")
     .attr("class", "dot")
-    .attr("cx", (d) => xScale(parseFloat(d.ratio_total_deaths) * 100))
-    .attr("cy", (d) => yScale(parseFloat(d.ratio_total_cases) * 100))
+    .attr("cx", (d) => xScale(parseFloat(d.ratio_total_deaths) ))
+    .attr("cy", (d) => yScale(parseFloat(d.ratio_total_cases) ))
     .attr("r", (d) => sizeScale(parseFloat(d.ratio_total_vaccinations)))
     .style("fill", (d) => colorScale(d.Regional_indicator))
     .on("mouseover", showTooltip)
